@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+        body{
+                background-color:#797979;
+                }
+        .register{
+                border-radius:5%;
+                background-color:#383838;
+                width:300px;
+                height:280px;
+                padding:20px;
+                }
+        label,h3{
+                color:white;
+                }
+        .error{
+                color:red;
+                }
+    </style>
+</head>
+    <body>
+        <center>
+                  <div class="register">
+                      <form action="register" method="post">
+                          {% csrf_token %}
+                        <h3>Registration</h3>
+                         <table>
+                             <tr>
+                                <td>
+                                    <label>First Name</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="fname" placeholder="Enter First Name">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Last Name</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="lname" placeholder="Enter Last Name">
+                                </td>
+                            </tr>
+                        <tr>
+                           <td>
+                               <label>User Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="uname" placeholder="Enter User Name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>email</label>
+                            </td>
+                            <td>
+                                <input type="email" name="email" placeholder="eg: abc@xyz.com">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="pwd" placeholder="must include a symbol">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Confirm Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="cpwd">
+                            </td>
+                        </tr>
+                      </table><br>
+                      <input type="submit" value="Register">
+            </form>
+                      {% for msg in messages %}
+                      <label class="error">{{msg}}</label>
+                      {% endfor %}
+            </div>
+
+        </center>
+    </body>
+</html>

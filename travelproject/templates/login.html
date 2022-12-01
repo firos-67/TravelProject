@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <style>
+        body{
+                background-color:#71A8B2;
+                }
+        .login{
+                border-radius:5%;
+                background-color:#173940;
+                width:270px;
+                height:170px;
+                padding:20px;
+                }
+        label,h3{
+                color:white;
+                }
+        .error{
+        color:red;
+        }
+
+    </style>
+</head>
+    <body>
+        <center>
+
+                  <div class="login">
+              <form action="login" method="post">
+                  {% csrf_token %}
+                      <h3>User Login</h3>
+                      <table>
+                        <tr>
+                           <td>
+                               <label>Username</label>
+                            </td>
+                            <td>
+                                <input type="text" name="uname" placeholder="Enter Username">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="pwd" placeholder="Enter Password">
+                            </td>
+                        </tr>
+                      </table>
+                        <br><input type="submit" value="Login">
+              </form>
+                      {% for msg in messages %}
+                      <label class="error">{{msg}}</label>
+                      {% endfor %}
+                  </div>
+
+        </center>
+    </body>
+</html>
